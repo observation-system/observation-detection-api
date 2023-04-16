@@ -1,0 +1,13 @@
+uvicorn
+matplotlib>=3.2.2
+numpy>=1.18.5, <= 1.23
+fastapi==0.81.0
+mysql-connector-python
+youtube_dl
+datetime
+ImageHash
+python-dotenv
+asyncio
+boto3
+pafy
+ultralytics
