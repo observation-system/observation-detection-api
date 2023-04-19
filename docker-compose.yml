@@ -8,6 +8,6 @@ services:
     volumes:
       - .:/root/src
     ports:
-      - 9000:9000
+      - 8001:8001
     environment:
-      - PORT=9000
+      - PORT=8001

@@ -11,8 +11,8 @@ ENV LC_ALL ja_JP.UTF-8
 ENV TZ JST-9
 ENV TERM xterm
 
-EXPOSE 9000
-ENV PORT 9000
+EXPOSE 8001
+ENV PORT 8001
 ENV HOST "0.0.0.0"
 
 RUN apt-get install -y vim less
