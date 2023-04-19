@@ -11,7 +11,7 @@ docker container exec -it observation-system-detection-api-python-1 bash
 ```
 3.実行
 ```
-uvicorn api:APP --host=0.0.0.0 --port=9000
+uvicorn api:APP --host=0.0.0.0 --port=8001
 ```
 ## API仕様
 POST:[http://localhost:9000/api/detect/](http://localhost:9000/api/detect/)  
