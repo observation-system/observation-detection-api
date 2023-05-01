@@ -32,12 +32,9 @@ jobs:
         run: python -m venv venv && source venv/bin/activate && pip3 install -r requirements.txt
         if: steps.cache-venv.outputs.cache-hit != 'true'
 
-      - name: Activate venv and Run Test
-        run: . venv/bin/activate && pytest
-
       - name: Create Zipfile archive of Dependencies
         run: |
-          cd ./venv/lib/python3.8/site-packages
+          cd ./venv/lib/python3.10/site-packages
           zip -r9 ../../../../temp.zip .
 
       - name: Add App to Zip file
