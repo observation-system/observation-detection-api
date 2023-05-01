@@ -1,0 +1,32 @@
+name: observation-system-detection-api-main
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  continous-integration:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          . venv/bin/activate
+          pip install -r requirements.txt
+      - name: Build Lambda function ZIP file
+        run: |
+          mkdir dist
+          zip -r dist/lambda_function.zip .
+        if: success()
+      - name: Deploy to AWS Lambda
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          region: us-west-2
+          function_name: my_lambda_function
+          zip_file: dist/lambda_function.zip
+        if: success()
