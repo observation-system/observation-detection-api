@@ -32,13 +32,8 @@ jobs:
         run: python -m venv venv && source venv/bin/activate
         if: steps.cache-venv.outputs.cache-hit != 'true'
 
-      - name: Create Zipfile archive of Dependencies
-        run: |
-          cd ./venv/lib/python3.10/site-packages
-          zip -r9 ../../../../temp.zip .
-
       - name: Add App to Zip file
-        run: unzip temp.zip && zip -g api.zip -r .
+        run: zip -g api.zip -r .
 
       - name: Upload zip file artifact
         uses: actions/upload-artifact@v2
