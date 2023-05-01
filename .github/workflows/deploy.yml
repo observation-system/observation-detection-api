@@ -15,30 +15,9 @@ jobs:
         with:
           python-version: "3.10"
           architecture: x64
-          
-      - name: Install Python Virtual Env
-        run: pip3 install virtualenv
-
-      - name: Setup Virtual env
-        uses: actions/cache@v2
-        id: cache-venv
-        with:
-          path: venv
-          key: ${{ runner.os }}-venv-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-venv-
-
-      - name: Activate and Install Depencies into Virtual env
-        run: python -m venv venv && source venv/bin/activate
-        if: steps.cache-venv.outputs.cache-hit != 'true'
-
-      - name: Create Zipfile archive of Dependencies
-        run: |
-          cd ./venv/lib/python3.10/site-packages
-          zip -r9 ../../../../temp.zip .
 
       - name: Add App to Zip file
-        run: unzip temp.zip && zip -g api.zip -r .
+        run: zip -g api.zip -r .
 
       - name: Upload zip file artifact
         uses: actions/upload-artifact@v2
