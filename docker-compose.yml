@@ -1,6 +1,6 @@
 version: '3'
 services:
-  python:
+  app:
     restart: always
     build: ./docker/python
     working_dir: '/root/src'
@@ -8,6 +8,6 @@ services:
     volumes:
       - .:/root/src
     ports:
-      - 8001:8000
+      - 8002:8000
     environment:
-      - PORT=8001
+      - PORT=8002
