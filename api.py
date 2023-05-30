@@ -7,7 +7,7 @@ from typing import List
 from ultralytics import YOLO
 
 APP = FastAPI()
-YOLOV8_MODEL = YOLO("./yolo_models/original_best_n.pt")
+YOLOV8_MODEL = YOLO("./yolo_models/yolov8n.pt")
 
 def check_directory():
     detect_dir_path = "./detect_images"
