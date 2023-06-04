@@ -2,4 +2,4 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /observation-system-detection-api
+    destination: /observation-detection-api
