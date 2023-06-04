@@ -51,7 +51,7 @@ def get_images(spot_data):
         
     return update_data
 
-@APP.post("/detect/")
+@APP.post("/batch_detection")
 async def detect(spot_data: List[dict]):
     check_directory()
     response = get_images(spot_data)
