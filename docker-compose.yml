@@ -8,6 +8,6 @@ services:
     volumes:
       - .:/root/src
     ports:
-      - 8002:8000
+      - 8003:8000
     environment:
-      - PORT=8002
+      - PORT=8003

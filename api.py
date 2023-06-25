@@ -26,8 +26,8 @@ def get_images(spot_data):
     update_data = []
 
     for i in range(len(spot_data)):
-        id = spot_data[i]["id"]
-        url = spot_data[i]["spots_url"]
+        spot_key = spot_data[i]["spot_key"]
+        url = spot_data[i]["url"]
         dir_path = "./detect_images"
         ext = "jpg"
         video = pafy.new(url)
@@ -38,16 +38,16 @@ def get_images(spot_data):
             return
 
         os.makedirs(dir_path, exist_ok=True)
-        base_path = os.path.join(dir_path, str(id))
+        base_path = os.path.join(dir_path, spot_key)
         ret, frame = cap.read()
         cv2.imwrite('{}.{}'.format(base_path, ext), frame)
 
-        results = YOLOV8_MODEL("./detect_images/%s.jpg" % id ,save=True, classes=0)    
+        results = YOLOV8_MODEL("./detect_images/%s.jpg" % spot_key ,save=True, classes=0)    
         box_count = len(results[0].boxes.data)
         update_data.append({
-            "id": id,
+            "spot_key": spot_key,
             "count": box_count
-            })
+        })
         
     return update_data
 
