@@ -1,3 +1,4 @@
+import uvicorn
 import os
 import shutil
 import cv2
@@ -57,3 +58,6 @@ async def detect(spot_data: List[dict]):
     response = get_images(spot_data)
 
     return response
+
+if __name__ == "__main__":
+    uvicorn.run(APP, host="0.0.0.0", port=8000)
