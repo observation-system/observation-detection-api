@@ -3,4 +3,6 @@ fastapi==0.81.0
 youtube_dl
 asyncio
 pafy
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==1.11.0+cpu
 ultralytics
