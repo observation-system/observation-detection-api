@@ -17,5 +17,4 @@ ENV HOST "0.0.0.0"
 
 RUN pip install --upgrade pip
 RUN pip install --upgrade setuptools
-RUN pip install -r requirements.txt
 RUN pip install youtube-dl==2021.1.3
